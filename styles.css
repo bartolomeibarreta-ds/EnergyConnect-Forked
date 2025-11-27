@@ -19,6 +19,7 @@
     text-align: center;
     color: white;
     min-height: 250px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
 .banner h2 {
@@ -33,14 +34,18 @@
     margin: 20px 0;
 }
 
-.section-home {
-    padding: 20px;
+.section-title {
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-bottom: 15px;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
 .programs {
-    padding: 10px 20px;
+    padding: 25px 40px;
+    background: #D9D9D9;
 }
 
 .program-header {
@@ -48,11 +53,11 @@
 }
 
 .program-card-home {
-    background: white;
+    background: #EDEFF2;
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4);
 }
 
 /* Programs */
