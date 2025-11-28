@@ -98,6 +98,57 @@
     text-align: center;
     padding: 45px 290px;
     font-weight: 350;
+    font-size: 18px;
+}
+
+section {
+    display: none;
+}
+
+section:target {
+    display: block;
+}
+
+/* Right-side button in banner-profiles */
+.banner-profiles .right-button {
+    position: absolute;
+    top: 50%;          /* vertically center */
+    right: 30px;       /* distance from the right edge */
+    transform: translateY(-50%);
+    padding: 12px 25px;
+    background-color: #FFEC40;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 20;       /* above images */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.banner-profiles .right-button:hover, .banner-profiles .left-button:hover {
+    background-color: #FFD700;
+}
+
+/* Right-side button in banner-profiles */
+.banner-profiles .left-button {
+    position: absolute;
+    top: 50%;          /* vertically center */
+    left: 30px;       /* distance from the right edge */
+    transform: translateY(-50%);
+    padding: 12px 25px;
+    background-color: #FFEC40;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 20;       /* above images */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+body:not(:has(section:target)) #main {
+    display: block;
 }
 
 /* Programs */
