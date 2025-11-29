@@ -338,11 +338,6 @@
 
 /* About Page - Bartolome Ibarreta */
 
-* {
-    font-family: Poppins, San serif;
-    background-color: transparent;
-}
-
 h1,
 h2,
 h3,
@@ -356,14 +351,15 @@ body {
     background-color: #ffffff;
 }
 
-/* ===== ABOUT PAGE STYLES ===== */
+/* ABOUT PAGE STYLES */
 .about header {
+
     display: flex;
     justify-content: space-between;
-    height: 100px;
-    background-color: #1C5186;
-    color: #FFFFFF;
+    height: 148px;
     padding: 20px 60px 20px 30px;
+    color: #FFFFFF;
+    background-color: #1C5186;
 }
 
 .about .header-image {
@@ -396,13 +392,12 @@ body {
 .about .header-menu {
     align-self: center;
     font-size: 70px;
-}
+} 
 
 /* About Main Styles */
 .about .main-container {
     font-family: 'Poppins', sans-serif;
-    padding: 130px 20px 20px 20px;
-    margin: 0px 0px 300px 0px;
+    padding: 40px 40px 300px 40px;
 }
 
 .about .main-container h2 {
@@ -421,13 +416,13 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 50px;
-    height: 520px;
-    margin: 20px;
+    height: 600px;
     padding: 40px;
+    margin-top: 110px;
     color: #000000;
     background-color: #F0F2F3;
     border: solid 0px transparent;
-    border-radius: 20px;
+    border-radius: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.12);
 }
 
@@ -442,9 +437,9 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 50px;
-    height: 530px;
-    margin: 20px;
-    padding: 150px 40px 40px 40px;
+    height: 610px;
+    padding: 40px 40px 40px 10px;
+    margin-top: 220px;
     border: solid 0px transparent;
     border-radius: 20px;
     color: #000000;
@@ -452,8 +447,8 @@ body {
 }
 
 .about .image-container2 {
-    height: 460px;
-    width: 730px;
+    height: 530px;
+    width: 790px;
     padding: 40px 30px;
     background-color: #F0F2F3;
     border: 0;
@@ -481,10 +476,10 @@ body {
 .about .main-section3 {
     display: flex;
     justify-content: space-between;
-    gap: 50px;
-    height: 650px;
-    margin: 20px;
-    padding: 150px 40px 40px 40px;
+    gap: 20px;
+    height: 750px;
+    padding: 40px 10px 40px 40px;
+    margin-top: 200px;
     border: solid 0px transparent;
     border-radius: 20px;
     color: #000000;
@@ -492,8 +487,9 @@ body {
 }
 
 .about .image-container3 {
-    height: 460px;
-    width: 730px;
+    align-self: center;
+    height: 540px;
+    width: 790px;
     padding: 40px 30px;
     background-color: #F0F2F3;
     border: 0;
@@ -519,13 +515,13 @@ body {
 
 /* About Footer Styles */
 .about .footer-container {
-    height: 447px;
+    height: 450px;
     background-color: #1C5186;
-    padding: 13px 21px 13px 21px;
+    padding: 30px 20px 10px 20px;
 }
 
 .about .footer-section1 {
-    padding: 8px 0px 0px 20px;
+    padding: 0px 0px 0px 20px;
 }
 
 .about .footer-section1 h2 {
@@ -616,7 +612,7 @@ body {
 
 .about .footer-section3 {
     font-family: 'Kantumruy Pro', sans-serif;
-    padding: 30px 20px 0px 20px;
+    padding: 8px 10px 8px 10px;
 }
 
 .about .footer-section3 p {
