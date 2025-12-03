@@ -338,22 +338,18 @@
 
 /* About Page - Bartolome Ibarreta */
 
-h1,
-h2,
-h3,
-p {
+h1, h2, p {
     margin: 0px;
     padding: 0px;
 }
 
 body {
+    font-family: "Poppins", "Kantumruy Pro", sans-serif;
     margin: 0;
     background-color: #ffffff;
 }
 
-/* ABOUT PAGE STYLES */
 .about header {
-
     display: flex;
     justify-content: space-between;
     height: 148px;
@@ -375,7 +371,7 @@ body {
 .about .header-info {
     display: flex;
     align-items: center;
-    gap: 50px;
+    padding-right: 75px;
 }
 
 .about .header-h1 {
@@ -384,25 +380,53 @@ body {
 }
 
 .about .header-h1 h1 {
-    font-family: Poppins;
     font-weight: 500;
     font-size: 47px;
 }
 
-.about .header-menu {
-    align-self: center;
-    font-size: 70px;
-} 
+.about .menu-icon {
+    font-size: 60px;
+    cursor: pointer;
+    user-select: none;
+    margin-right: 30px;
+    position: absolute;
+    right: 20px;
+    top: 26px;
+    color: white;
+}
+
+.about .dropdown-menu {
+    position: absolute;
+    top: 75px;
+    right: 20px;
+    width: 150px;
+    background: white;
+    border-radius: 5px;
+    padding: 10px 0;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+}
+
+.about .dropdown-menu a {
+    display: block;
+    text-align: center;
+    padding: 12px 18px;
+    color: black;
+    font-size: 17px;
+    font-weight:420;
+    text-decoration: none;
+}
 
 /* About Main Styles */
 .about .main-container {
-    font-family: 'Poppins', sans-serif;
     padding: 40px 40px 300px 40px;
 }
 
 .about .main-container h2 {
     font-weight: bolder;
-    font-size: 80px;
+    font-size: 84px;
+    line-height: 1.3;
     margin-bottom: 20px;
 }
 
@@ -417,19 +441,19 @@ body {
     justify-content: space-between;
     gap: 50px;
     height: 600px;
-    padding: 40px;
+    padding: 40px 40px 40px 60px;
     margin-top: 110px;
     color: #000000;
     background-color: #F0F2F3;
     border: solid 0px transparent;
     border-radius: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 
 .about .main-section1 iframe {
     border: solid transparent;
     border-radius: 8px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 6px 12px rgba(0, 0, 0, 0.18);
+    box-shadow: 0px 4px 4px 1px rgb(0 0 0 / 0.4);
 }
 
 /* About Section 2 */
@@ -453,7 +477,7 @@ body {
     background-color: #F0F2F3;
     border: 0;
     border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(5, 0, 0, 0.08), 0 4px 8px rgba(5, 0, 0, 0.12);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 
 .about .main-section2 img {
@@ -494,7 +518,7 @@ body {
     background-color: #F0F2F3;
     border: 0;
     border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(5, 0, 0, 0.08), 0 4px 8px rgba(5, 0, 0, 0.12);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 
 .about .main-section3 img {
@@ -516,8 +540,8 @@ body {
 /* About Footer Styles */
 .about .footer-container {
     height: 450px;
-    background-color: #1C5186;
     padding: 30px 20px 10px 20px;
+    background-color: #1C5186;
 }
 
 .about .footer-section1 {
@@ -525,7 +549,6 @@ body {
 }
 
 .about .footer-section1 h2 {
-    font: Poppins;
     color: #FFFFFF;
     font-size: 57px;
     font-weight: bold;
@@ -534,7 +557,7 @@ body {
 .about .footer-section2 {
     display: flex;
     flex-direction: row;
-    gap: 180px;
+    gap: 200px;
     justify-content: space-between;
     padding: 20px 20px 0px 50px;
 }
@@ -559,14 +582,14 @@ body {
 }
 
 .about .footer-section2 p {
+    color: #FFFFFF;
     font-family: 'Kantumruy Pro', sans-serif;
     font-weight: 500;
     font-size: 30px;
-    color: #FFFFFF;
     margin: 0;
 }
 
-/* About Social Media Style */
+/* About Social Media Style & Icons */
 .about .soc-items {
     display: flex;
     align-items: center;
@@ -588,7 +611,7 @@ body {
     font-size: 35px;
 }
 
-/* About Contact Information Styles */
+/* About Contact Information Styles & Icons*/
 .about .con-items {
     display: flex;
     align-items: center;
@@ -610,15 +633,16 @@ body {
     font-size: 35px;
 }
 
+/* Footer Section 3 */
 .about .footer-section3 {
-    font-family: 'Kantumruy Pro', sans-serif;
     padding: 8px 10px 8px 10px;
 }
 
 .about .footer-section3 p {
+    color: #FFFFFF;
+    font-family: "Kantumruy Pro", sans-serif;
     font-weight: normal;
     font-size: 24px;
-    color: #FFFFFF;
 }
 
 /* ABOUT STYLE END */
