@@ -191,6 +191,16 @@ html, body {
     box-sizing: border-box;
 }
 
+.status.online {
+  background-color: #e1cc10;
+  color: black;
+}
+
+.status.offline {
+  background-color: rgb(141, 44, 38);
+  color: white;
+}
+
 .intro-programs {
     color: #FFEC40;
     padding-top: 20px;
@@ -247,6 +257,7 @@ html, body {
     padding: 40px 60px;
     border-radius: 10px;
     margin: 25px;
+    margin-bottom: 125px;
 }
 
 .top-bar {
@@ -295,7 +306,8 @@ html, body {
 .title-status {
     display: inline-flex;     
     align-items: center;      
-    gap: 10px;               
+    gap: 10px;   
+    padding-bottom: 3px;        
 }
 
 .card-right {

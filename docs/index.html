@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Energy FM 106.3</title>
     <link rel="stylesheet" href="styles.css">
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            width: 100%;
-        }
-    </style>
 </head>
-
 <body>
-
     <div class="header-home">
         <a href = "index.html">
             <img src="images/logo.png" alt="Energy FM 106.3 Naga Logo" class="logo">
@@ -57,9 +45,7 @@
     </div>
 
     <div class = "break-box"></div>
-
     <div class="section-title">FEATURED PROGRAMS</div>
-
     <div class="programs">
 
         <div class="program-card-home">
@@ -79,11 +65,9 @@
             <div>Time: 12:00 AM – 5:00 AM</div>
             <div>Music Only 🎧</div>
         </div>
-
     </div>
 
     <div class="section-title-news">LATEST NEWS UPDATES</div>
-
     <div class="news">
         <div class="news-card-home">
             <img src = "images/typhoon_photo.png" width = "325" height = "300">
@@ -96,13 +80,11 @@
         const audio = document.getElementById("liveAudio");
         const btn = document.getElementById("liveBtn");
         const title = btn.querySelector(".listen-title");
-
         let isPlaying = false;
 
         function setPlayState() {
             title.innerHTML = `▶   LISTEN LIVE HERE   <img src="images/listen_live.png">`;
         }
-
         function setPauseState() {
             title.innerHTML = `⏸   PAUSE LIVE STREAM <img src="images/listen_live.png">`;
         }
@@ -118,14 +100,11 @@
                 setPlayState();
             }
         });
-
-        // default on load
-        setPlayState();
+        setPlayState(); // default on load
     </script>
 </body>
 
     <div class = "footer">
         <footer>Privacy Policy | Energy FM © 2010</footer>
     </div>
-
 </html>

@@ -67,32 +67,91 @@
         <footer>Privacy Policy | Energy FM © 2010</footer>
     </div>
 
-    <script>
-  // Fetch programs and day types concurrently
+<script>
+        function formatToAMPM(time24) {
+    // time24 is like "14:30:45" or "08:05:00"
+    const [hour, minute] = time24.split(':'); // ignore seconds
+    const h = parseInt(hour) % 12 || 12; // 0 → 12
+    const ampm = parseInt(hour) >= 12 ? 'PM' : 'AM';
+    return `${h}:${minute} ${ampm}`;
+    }
+  function isProgramOnline(programDayTypes, startTime, endTime) {
+    const now = new Date();
+
+    const [startHour, startMinute] = startTime.split(':').map(Number);
+    const [endHour, endMinute] = endTime.split(':').map(Number);
+
+    const start = new Date(now);
+    start.setHours(startHour, startMinute, 0, 0);
+
+    const end = new Date(now);
+    end.setHours(endHour, endMinute, 0, 0);
+
+    // Handle midnight wrap
+    if (end < start) end.setDate(end.getDate() + 1);
+
+    const isWithinTime = now >= start && now <= end;
+
+    // Map day type names to weekdays (0 = Sunday, 6 = Saturday)
+    const daysMap = {
+      "WEEKDAYS": [1, 2, 3, 4, 5],
+      "SAT": [6],
+      "SUN": [0],
+    };
+
+    // Check if any day type matches today
+    const isCorrectDay = programDayTypes.some(dt => daysMap[dt]?.includes(now.getDay()));
+
+    return isWithinTime && isCorrectDay;
+  }
+
   Promise.all([
     fetch('http://localhost:5500/programs').then(res => res.json()),
-    fetch('http://localhost:5500/daytype').then(res => res.json())
+    fetch('http://localhost:5500/program_day_type').then(res => res.json()), // fetch Program_Day_Type
+    fetch('http://localhost:5500/daytype').then(res => res.json()),
+    fetch('http://localhost:5500/program_anchor_assignment').then(res => res.json()),
+    fetch('http://localhost:5500/djs').then(res => res.json())
   ])
-  .then(([programs, dayTypes]) => {
+  .then(([programs, programDayTypes, dayTypes, assignments, djs]) => {
     const programList = document.querySelector('.program-list');
-    programList.innerHTML = ''; // clear existing content
+    programList.innerHTML = '';
 
     programs.forEach(program => {
-      // Find the day type name for this program's DAY_TYPE_ID if applicable
-      // If your program table has a DAY_TYPE_ID column
-      const dayTypeObj = dayTypes.find(dt => dt.ID === program.DAY_TYPE_ID);
-      const dayTypeName = dayTypeObj ? dayTypeObj.DAY_TYPE : '';
+      // Get all day type IDs for this program
+      const programDayTypeIDs = programDayTypes
+        .filter(pdt => pdt.PROGRAM_ID === program.ID)
+        .map(pdt => pdt.DAY_TYPE_ID);
+
+      // Get corresponding day type names
+      const programDayTypeNames = programDayTypeIDs.map(id => {
+        const dt = dayTypes.find(d => d.ID === id);
+        return dt ? dt.DAY_TYPE : '';
+      });
+
+      // Get all DJs assigned to this program
+      const assignedDJs = assignments
+        .filter(a => a.PROGRAM_ID === program.ID)
+        .map(a => {
+          const dj = djs.find(d => d.ID === a.DJ_ID);
+          if (!dj) return "";
+          return dj.STAGE_NAME || dj.REAL_NAME.toUpperCase();
+        })
+        .join(', ');
+
+      const isOnline = isProgramOnline(programDayTypeNames, program.START_TIME, program.END_TIME);
+      const statusClass = isOnline ? "online" : "offline";
+      const statusText = isOnline ? "ON AIR" : "OFFLINE";
 
       const card = document.createElement('div');
       card.classList.add('program-card');
       card.innerHTML = `
         <div class="card-left">
           <div class="title-status">
-            <h3>${program.PROGRAM_NAME}</h3>
-            <span class="status ${program.STATUS?.toLowerCase() || 'offline'}">${program.STATUS || 'OFFLINE'}</span>
+            <h3>${program.TITLE}</h3>
+            <span class="status ${statusClass}">${statusText}</span>
           </div>
-          <p class="schedule">${program.START_TIME} – ${program.END_TIME} | ${dayTypeName}</p>
-          <p class="hosts">${program.HOSTS || 'TBA'}</p>
+          <p class="schedule">${formatToAMPM(program.START_TIME)} – ${formatToAMPM(program.END_TIME)} | ${programDayTypeNames.join(', ')}</p>
+          <p class="hosts">${assignedDJs || program.TYPE}</p>
         </div>
         <div class="card-right">
           <p>${program.DESCRIPTION || 'Program description here'}</p>
