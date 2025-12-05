@@ -138,7 +138,7 @@ html, body {
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
-    gap: 20px;
+    gap: 15px;
 }
 
 .program-header, .news-header {
@@ -154,6 +154,7 @@ html, body {
     box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4);
     margin-right: 25px;
     margin-left: 25px;
+    flex: 0 0 300px;
 }
 
 .news-card-home {
@@ -165,11 +166,13 @@ html, body {
     box-shadow: 0 10px 20px -5px rgba(0,0,0,0.4);
     margin-right: 25px;
     margin-left: 25px;
+    flex: 0 0 300px;
+
 }
+
 .news-card-home img {
     padding-bottom: 15px;
 }
-
 
 /* Profiles */
 .header-profiles {
@@ -358,6 +361,7 @@ html, body {
     font-weight: bold;
     font-size: 12px;
     height: 28px;
+    width: 150px;
 }
 
 .program-list {
@@ -958,6 +962,9 @@ body.landing-page {
     font-weight: 400;
     font-size: 22px;
     color: #222;
+    margin-bottom: 50px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); 
 }
 
 /* BUTTONS */
@@ -993,3 +1000,6 @@ body.landing-page {
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
+.user-button:hover , .admin-button:hover {
+  transform: scale(1.02);
+}

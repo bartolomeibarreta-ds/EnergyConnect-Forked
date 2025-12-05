@@ -17,9 +17,11 @@
 
 .header {
     background: url("images/header_photo.png") center/cover no-repeat;
-    height: 350px;
+    height: auto;
+    min-height: 350px;
     position: relative;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 4);
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 4); */
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.50);
 }
 
 .header-overlay {
@@ -35,10 +37,13 @@
     font-size: 60px;
     font-weight: 900;
     letter-spacing: -2px;
+    font-size: clamp(2rem, 6vw, 60px);
 }
 
 .header-overlay p {
+    /* padding-top: 35px; */
     padding-top: 35px;
+    padding-bottom: 15px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -53,7 +58,10 @@
 
 .break-box {
     background-color: rgba(69, 78, 87, 1);
-    height: 50px;
+    /* height: 50px; */
+    width: 100%;
+    height: auto;
+    min-height: 50px;
 }
 
 .featurednews {
@@ -64,7 +72,7 @@
     gap: 10px;
     width: 100%;
     height: auto;
-    padding-top: 30px;
+    padding-top: 40px;
 }
 
 @media (max-width:768px) {
@@ -75,17 +83,19 @@
 }
 
 .featurednews-image {
-    width: 40%;
+    width: 35%;
+    min-width: 500px;
     height: auto;
+    min-height: 350px;
     margin-left: 30px;
     border-radius: 10px;
-    padding-left: 20px;
 }
 
 .featurednews-author {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: center;   
+    padding-top: 20px;
 }
 
 .author-profile {
@@ -97,10 +107,16 @@
 
 .news-content {
     width: 60%;
-    max-width: 900px;
+    max-width: 1000px;
     height: auto;
     padding-left: 30px;
-    padding-top: 20px;
+}
+
+@media (max-width:768px) {
+    .news-content {
+        width: 90%;
+        padding-left: 25px;
+    }
 }
 
 .news-content p {
@@ -109,17 +125,18 @@
 }
 
 .news-content h1 {
-    padding-top: 20px;
+        padding-top: 20px;
     padding-bottom: 10px;
     font-size: 40px;
     font-weight: 800;
 }
 
 .news-content h5 {
-    padding-top: 15px;
-    padding-right: 65px;
+    padding: 15px 10px;
     font-size: 20px;
     font-weight: 200;
+
+    padding-left: 0;
 }
 
 h4 {
