@@ -255,9 +255,13 @@ html, body {
     padding-top: 10px;
 }
 
-.left-button img,
+.left-button img {
+    width: 35px;
+    height: auto;
+}
+
 .right-button img {
-    width: 40px;
+    width: 32.5px;
     height: auto;
 }
 
@@ -268,9 +272,12 @@ html, body {
         gap: 10px;
     }
 
-    .left-button img,
-    .right-button img {
+    .left-button img {
         width: 30px;
+    }
+
+    .right-button img {
+        width: 27.5px;
     }
 }
 
@@ -283,6 +290,15 @@ html, body {
     text-align: center; 
     padding-top: 50px;
     font-size: 50px;
+    padding-bottom: 20px;
+}
+
+.description h2 {
+    text-align: center; 
+    font-style: italic;
+    font-size: 28px;
+    font-weight: 350;
+    padding-bottom: 35px;
 }
 
 .description p {
@@ -308,9 +324,9 @@ transform: scale(1.02);
     top: 50px; /* moves image down inside header */
 }
 
-.profiles-page section {
+/* .profiles-page section {
     display: none;
-}
+} */
 
 .profiles-page section:target {
     display: block;
@@ -339,6 +355,7 @@ transform: scale(1.02);
     font-weight: bold;
     cursor: pointer;
     z-index: 20;
+    background: none;
 }
 
 /* Right button */
@@ -353,13 +370,12 @@ transform: scale(1.02);
     font-weight: bold;
     cursor: pointer;
     z-index: 20;
+    background: none;
 }
 
-
-
-.profiles-page:not(:has(section:target)) #main, #main-description {
+/* .profiles-page:not(:has(section:target)) #main, #main-description {
     display: block;
-}
+} */
 
 .hosts-profile section a {
     text-decoration: none;
@@ -373,6 +389,18 @@ transform: scale(1.02);
     .right-button {
         right: calc(45% - 425px / 2 - 60px); /* bigger gap for large screens */
     }
+}
+
+.description section {
+    display: none;
+}
+
+.description section:target {
+    display: block;
+}
+
+.description:not(:has(section:target)) #main-description {
+    display: block; /* fallback to "DJ PROFILES" when no DJ selected */
 }
 
 
@@ -465,7 +493,7 @@ transform: scale(1.02);
 .top-bar h2 {
     color: #991111;
     font-weight: 900;
-    font-size: 26px;
+   font-size: clamp(12px, 4vw, 20px);
 }
 
 .filter-btn {
