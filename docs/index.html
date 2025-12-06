@@ -36,29 +36,27 @@
     </section>
 
     <!-- Admin Login (hidden at first) -->
-    <section id="admin-login" class="admin-section" style="display:none;">
-        <h1>Sign In</h1>
+<section id="admin-login" class="admin-section" style="display:none;">
+    <h1>Sign In</h1>
 
-        <form class="admin-form">
-            <label>Email</label>
-            <input type="text" id="email">
+    <form id="admin-form" class="admin-form">
+        <label>Email</label>
+        <input type="text" id="email">
 
-            <label>Password</label>
-            <input type="password" id="password">
+        <label>Password</label>
+        <input type="password" id="password">
 
-            <div class = "login">
+        <div class="login">
             <button type="submit" class="login-button">Login</button>
-            </div>
+        </div>
 
-            <p class="google-login">Login using   
-                <a href = "https://accounts.google.com/signin">
-                    <img src="images/google.png" class="google-icon">
-                </a>
-                </p>
-        </form>
-    </section>
-
-</div>
+        <p class="google-login">Login using   
+            <a href="https://accounts.google.com/signin">
+                <img src="images/google.png" class="google-icon">
+            </a>
+        </p>
+    </form>
+</section>
 
 <script>
 document.getElementById("show-admin").addEventListener("click", () => {
@@ -71,12 +69,38 @@ document.getElementById("show-admin").addEventListener("click", () => {
 
     // adjust continue box height
     const continueBox = document.querySelector(".continue");
-    continueBox.style.height = "410px"; // adjust based on admin section content
+    continueBox.style.height = "410px";
 
     // smooth scroll
     adminBox.scrollIntoView({ behavior: "smooth" });
 });
+
+// Predefined admin credentials (for demo purposes)
+const ADMIN_EMAIL = "admin@example.com";
+const ADMIN_PASSWORD = "Admin123!";
+
+document.getElementById("admin-form").addEventListener("submit", function(e) {
+    e.preventDefault(); // prevent form from submitting
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    // Check if inputs are empty
+    if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+    }
+
+    // Check credentials
+    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+        // correct login → redirect
+        window.location.href = "admin-home.html";
+    } else {
+        alert("Incorrect email or password.");
+    }
+});
 </script>
+
 
 
 </body>
