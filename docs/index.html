@@ -22,14 +22,62 @@
     <h1 class="welcome-title">Welcome to <span>ENERGYCONNECT</span></h1>
 
     <!-- Continue Box -->
-    <div class="continue">
+<!-- Continue Box -->
+<div class="continue">
+
+    <!-- Continue As (shown first) -->
+    <section id="main-continue" class="continue-section">
         <h1>Continue as</h1>
 
         <div class="button-row">
-            <a href = "home.html" class="user-button">a User</a>
-            <a href = "admin-home.html" class="admin-button">an Admin</a>
+            <a href="home.html" class="user-button">a User</a>
+            <button id="show-admin" class="admin-button" type="button">an Admin</button>
         </div>
-    </div>
+    </section>
+
+    <!-- Admin Login (hidden at first) -->
+    <section id="admin-login" class="admin-section" style="display:none;">
+        <h1>Sign In</h1>
+
+        <form class="admin-form">
+            <label>Email</label>
+            <input type="text" id="email">
+
+            <label>Password</label>
+            <input type="password" id="password">
+
+            <div class = "login">
+            <button type="submit" class="login-button">Login</button>
+            </div>
+
+            <p class="google-login">Login using   
+                <a href = "https://accounts.google.com/signin">
+                    <img src="images/google.png" class="google-icon">
+                </a>
+                </p>
+        </form>
+    </section>
+
+</div>
+
+<script>
+document.getElementById("show-admin").addEventListener("click", () => {
+    // hide first screen
+    document.getElementById("main-continue").style.display = "none";
+
+    // show admin login
+    const adminBox = document.getElementById("admin-login");
+    adminBox.style.display = "block";
+
+    // adjust continue box height
+    const continueBox = document.querySelector(".continue");
+    continueBox.style.height = "410px"; // adjust based on admin section content
+
+    // smooth scroll
+    adminBox.scrollIntoView({ behavior: "smooth" });
+});
+</script>
+
 
 </body>
 </html>
